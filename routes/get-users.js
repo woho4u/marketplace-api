@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { connectToDatabase } = require("../lib/mongoose");
-const { Item } = require("../models/Item");
+const Item = require("../models/Item");
 
 // Example Route
 router.get("/get-users", async (req, res) => {

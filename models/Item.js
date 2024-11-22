@@ -12,4 +12,4 @@ const ItemSchema = new mongoose.Schema(
 // Avoid overwriting models when hot-reloading in development
 console.log("models", models);
 console.log("models.Item", models.Item);
-module.exports = models.Item || model("Item", ItemSchema);
+module.exports = mongoose.models.Item || model("Item", ItemSchema);
