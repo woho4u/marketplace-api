@@ -17,13 +17,13 @@ router.post("/add-project", async (req, res) => {
       const data = req.body;
 
       // Create and save a new item
-      const newItem = new Project(data);
-      const savedItem = await newItem.save();
+      const newProject = new Project(data);
+      const savedProject = await newProject.save();
 
       // Send a success response
-      res.status(201).json({ success: true, item: savedItem });
+      res.status(201).json({ success: true, item: savedProject });
    } catch (error) {
-      console.error("Error saving item:", error);
+      console.error("Error saving project:", error);
       res.status(500).json({ success: false, error: error.message });
    }
 });
