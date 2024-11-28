@@ -14,7 +14,20 @@ router.post("/add-project", async (req, res) => {
       await connectToDatabase();
 
       // Extract data from the request body
-      const data = req.body;
+      console.log("");
+      console.log("");
+      console.log("");
+      console.log("");
+      console.log("");
+      console.log("");
+      console.log("");
+      console.log("Request body: ", req.body.project);
+
+      const data = req.body.project;
+
+      if (data._id === "" || !data._id) {
+         delete data._id;
+      }
 
       // Create and save a new item
       const newProject = new Project(data);
