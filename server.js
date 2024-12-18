@@ -9,6 +9,14 @@ const getProjectsRoute = require("./routes/get-projects");
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+    const apiKey = req.query.api_key;
+    if (!apiKey || apiKey !== process.env.API_KEY) {
+        return res.status(401).json({ message: 'Unauthorized: Invalid or missing API key'})
+    }
+    next();
+});
+
 // Mount Routes
 app.use("/api", exampleRoute);
 app.use("/api", addProjectRoute);
